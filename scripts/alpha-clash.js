@@ -6,11 +6,23 @@ function handleKeyboardKeyUpEvent(event) {
     // check match
     if (keyPressed === targetAlpha) {
         console.log('you get a point!')
+
+        // update score
+        const currentScoreText = document.getElementById('current-score')
+        const currentScore = parseInt(currentScoreText.innerText)
+        currentScoreText.innerText = currentScore + 1
+
+        // new round
         removeBackColorById(targetAlpha)
         continueGame()
     }
     else {
         console.log('you lost a life!')
+
+        // update life
+        const currentLifeText = document.getElementById('current-life')
+        const currentLife = parseInt(currentLifeText.innerText)
+        currentLifeText.innerText = currentLife - 1
     }
 
 }
